@@ -13,6 +13,8 @@
 
         let playerSelection = 'rock'
         let computerSelections = ['rock', 'paper', 'scissors'];
+        let playerScore = 0;
+        let computerScore = 0;
 
         function computerPlay() {
           let computerSelection = computerSelections[Math.floor(Math.random() * computerSelections.length)];
@@ -25,25 +27,56 @@
             return player.toLowerCase();
             console.log(player);
         }
-        //console.log(playerPlay());
         function playRound() {
            let play = playerPlay();
            let comp = computerPlay();
             if (play === comp) {
                 let result = 'It was a tie, play again!';
-            console.log(result);
+            alert(result);
             } else if (play === 'rock' && comp === 'scissors') {
                 let result = console.log('Rock beats paper, you win!');
+                playerScore++;
+                alert('Rock beats paper, you win! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
             } else if (play === 'rock' && comp === 'paper') {
                 let result = console.log("Rock loses to paper, sorry try again!");
+                computerScore++;
+                alert('Rock loses to paper, sorry try again! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
             } else if (play === 'paper' && comp === 'rock') {
                 let result = console.log('Paper beats rock, you win!');
+                playerScore++;
+                alert('Paper beats rock, you win! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
             } else if (play === 'paper' && comp === 'scissors') {
                 let result = console.log('Paper loses to scissors, sorry try again!');
+                computerScore++;
+                alert('Paper loses to scissors, sorry try again! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
             } else if (play === 'scissors' && comp === 'paper') {
                 let result = console.log('Scissors beats paper, you win!')
+                playerScore++;
+                alert('Scissors beats paper, you win! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
             } else if (play === 'scissors' && comp === 'rock') {
                 let result = console.log('Scissors loses to rock, sorry try again!');
+                computerScore++;
+                alert('Scissors loses to rock, sorry try again! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
+            }
+        }
+
+        function game() {
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            if (playerScore > computerScore) {
+                alert('Game over. You win! You scored ' + playerScore + ' points and the computer scored ' + computerScore + ' points.');
+            } else if (playerScore < computerScore) {
+                alert('Game over. You lost! You scored ' + playerScore + ' points and the computer scored ' + computerScore + ' points.');
+            } else {
+                alert('Game over, it was a tie! You and the computer both scored ' + playerScore + ' points.')
             }
         }
         
