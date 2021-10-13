@@ -1,0 +1,1 @@
+This was my first attempt at actually building anything using Javascript. This project reinforced my ability to write functions, if/else statements and it helped me to think and problem solve more like a programmer.
