@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let playerSelection = 'rock'
+        let computerSelections = ['rock', 'paper', 'scissors'];
+
+        function computerPlay() {
+          let computerSelection = computerSelections[Math.floor(Math.random() * computerSelections.length)];
+          return computerSelection;
+        }
+        console.log(computerPlay());
+
+        function playerPlay() {
+          player = prompt('Enter rock, paper or scissors');
+            return player.toLowerCase();
+            console.log(player);
+        }
+        //console.log(playerPlay());
+        function playRound() {
+           let play = playerPlay();
+           let comp = computerPlay();
+            if (play === comp) {
+                let result = 'It was a tie, play again!';
+            console.log(result);
+            } else if (play === 'rock' && comp === 'scissors') {
+                let result = console.log('Rock beats paper, you win!');
+            } else if (play === 'rock' && comp === 'paper') {
+                let result = console.log("Rock loses to paper, sorry try again!");
+            } else if (play === 'paper' && comp === 'rock') {
+                let result = console.log('Paper beats rock, you win!');
+            } else if (play === 'paper' && comp === 'scissors') {
+                let result = console.log('Paper loses to scissors, sorry try again!');
+            } else if (play === 'scissors' && comp === 'paper') {
+                let result = console.log('Scissors beats paper, you win!')
+            } else if (play === 'scissors' && comp === 'rock') {
+                let result = console.log('Scissors loses to rock, sorry try again!');
+            }
+        }
+        
+   
+    </script>
+</body>
+</html>
+
+
+        <!--function playRound() {
+            if ((computerPlay() === 'Rock' && playerPlay() === 'rock') || (computerPlay() === 'Paper' && playerPlay() === 'paper') (computerPlay() === 'Scissors' && playerPlay() === 'scissors')) {
+                alert('It was a tie, play again!');
+            } 
+        } 
+
+        else if (player === 'paper' && computer === 'Paper') {
+                alert('It was a tie, play again!');
+            }
