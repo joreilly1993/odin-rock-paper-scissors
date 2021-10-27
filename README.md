@@ -1,1 +1,3 @@
 This was my first attempt at actually building anything using Javascript. This project reinforced my ability to write functions, if/else statements and it helped me to think and problem solve more like a programmer.
+
+This rps-ui branch was created to add a new feature to my rock paper scissors game. The feature is a complete user interface that allows the player to click buttons to play the game rather than using the console.
