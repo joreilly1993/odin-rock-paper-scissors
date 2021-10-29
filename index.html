@@ -4,83 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="main.js" defer></script>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Hello! Welcome to my rock, paper, scissors game. In order to play you'll need to right click this screen and select "Inspect." Navigate to the tab that says "console" and type the following: game(); and then press enter.</h1>
+    <h1>Rock Paper Scissors</h1>
 
-    <script>
+    <div id="container">
 
-        let playerSelection = 'rock'
-        let computerSelections = ['rock', 'paper', 'scissors'];
-        let playerScore = 0;
-        let computerScore = 0;
+      <div id ="player-div">
+        <p>Select your move:</p>
+        <input type="image" src="images/rock2.png" name="player-rock" id="player-rock-button">
+        <input type="image" src="images/paper2.png" name="player-paper" id="player-paper-button">
+        <input type="image" src="images/scissors2.png" name="player-scissors" id="player-scissors-button">
+        <p>Test</p>
+      </div>
 
-        function computerPlay() {
-          let computerSelection = computerSelections[Math.floor(Math.random() * computerSelections.length)];
-          return computerSelection;
-        }
-        console.log(computerPlay());
+      <div id="score-and-play">
+        <p>Score:</p><br>
+        <p>Testttttt</p><br>
+        <p>Test</p>
+      </div>
 
-        function playerPlay() {
-          player = prompt('Enter rock, paper or scissors');
-            return player.toLowerCase();
-            console.log(player);
-        }
-        function playRound() {
-           let play = playerPlay();
-           let comp = computerPlay();
-            if (play === comp) {
-                let result = 'It was a tie, play again!';
-            alert(result);
-            } else if (play === 'rock' && comp === 'scissors') {
-                let result = console.log('Rock beats paper, you win!');
-                playerScore++;
-                alert('Rock beats paper, you win! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
-            } else if (play === 'rock' && comp === 'paper') {
-                let result = console.log("Rock loses to paper, sorry try again!");
-                computerScore++;
-                alert('Rock loses to paper, sorry try again! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
-            } else if (play === 'paper' && comp === 'rock') {
-                let result = console.log('Paper beats rock, you win!');
-                playerScore++;
-                alert('Paper beats rock, you win! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
-            } else if (play === 'paper' && comp === 'scissors') {
-                let result = console.log('Paper loses to scissors, sorry try again!');
-                computerScore++;
-                alert('Paper loses to scissors, sorry try again! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
-            } else if (play === 'scissors' && comp === 'paper') {
-                let result = console.log('Scissors beats paper, you win!')
-                playerScore++;
-                alert('Scissors beats paper, you win! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
-            } else if (play === 'scissors' && comp === 'rock') {
-                let result = console.log('Scissors loses to rock, sorry try again!');
-                computerScore++;
-                alert('Scissors loses to rock, sorry try again! Your score is ' + playerScore + ' and The Computer\'s score is ' + computerScore);
-            }
-        }
+      <div id="computer-div">
+          <p>Computer move:</p>
+        <img class ="game-images" src ="images/rock2.png">
+        <img class="game-images" src="images/paper2.png">
+        <img class="game-images" src="images/scissors2.png">
+      </div>
+    </div>
 
-        function game() {
-            playRound();
-            playRound();
-            playRound();
-            playRound();
-            playRound();
-            playRound();
-            playRound();
-            playRound();
-            playRound();
-            playRound();
-            if (playerScore > computerScore) {
-                alert('Game over. You win! You scored ' + playerScore + ' points and the computer scored ' + computerScore + ' points.');
-            } else if (playerScore < computerScore) {
-                alert('Game over. You lost! You scored ' + playerScore + ' points and the computer scored ' + computerScore + ' points.');
-            } else {
-                alert('Game over, it was a tie! You and the computer both scored ' + playerScore + ' points.')
-            }
-        }
-        
-   
-    </script>
+
 </body>
 </html>

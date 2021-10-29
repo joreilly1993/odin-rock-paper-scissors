@@ -1,0 +1,49 @@
+#container {
+    display: flex;
+    max-width: 200px;
+    justify-content: flex-start;
+    border: 1px solid blue;
+    
+}
+
+#player-div {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+#score-and-play {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+#computer-div {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid magenta;
+  
+}
+
+.game-images {
+   
+}
+.blur-paper {
+    filter: blur(4px);
+    pointer-events: none;
+    cursor: default;
+    transform: scale(.7, .7);
+}
+.blur-scissors {
+    filter: blur(4px);
+    pointer-events: none;
+    cursor: default;
+    transform: scale(.7, .7);
+}
+.blur-rock {
+    filter: blur(4px);
+    pointer-events: none;
+    cursor: default;
+    transform: scale(.7, .7);
+}
