@@ -15,19 +15,21 @@ function blurRockImage() {
     const blurRock = document.getElementById("player-rock-button");
     blurRock.classList.add("blur-rock");
 }
+function resetRock() {
+    const resetRock = document.getElementById("player-rock-button");
+    resetRock.style = 'border: none;'
+}
 // This function makes a random selection for the computer.
 function computerPlay() {
+    let computerSelections = ['rock', 'paper', 'scissors'];
     let computerSelection = computerSelections[Math.floor(Math.random() * computerSelections.length)];
     return computerSelection;
   }
 
-  
-  const computerSelections = ['rock', 'paper', 'scissors']
-    let computerSelection = computerSelections[Math.floor(Math.random() * computerSelections.length)];
 
     // This function blurs/disables paper and scissors if the computer selects rock.
-    function computerRockSelection() {
-        if (computerSelection === 'rock') {
+    function computerRPSSelection() {
+        if (computerPlay() === 'rock') {
             const computerRockSelection = document.getElementById("computer-rock-selection");
             computerRockSelection.classList.add("computer-rock-border");
             const blurComputerPaper = document.getElementById("computer-paper-selection");
@@ -35,35 +37,129 @@ function computerPlay() {
             const blurComputerScissors = document.getElementById("computer-scissors-selection");
             blurComputerScissors.classList.add("blur-computer-scissors");
         }
+        if (computerPlay() === 'paper') {
+            const computerPaperSelection = document.getElementById("computer-paper-selection");
+            computerPaperSelection.classList.add("computer-paper-border");
+            const blurComputerRock = document.getElementById("computer-rock-selection");
+            blurComputerRock.classList.add('blur-computer-rock');
+            const blurComputerScissors = document.getElementById("computer-scissors-selection");
+            blurComputerScissors.classList.add("blur-computer-scissors");
+            const blurComputerPaper = document.getElementById("computer-paper-selection");
+            blurComputerPaper.classList.add('blur-computer-paper');
+        }
+        if (computerPlay() === 'scissors') {
+            const computerScissorsSelection = document.getElementById("computer-scissors-selection");
+            computerScissorsSelection.classList.add("computer-scissors-selection");
+            const blurComputerRock = document.getElementById("computer-rock-selection");
+            blurComputerRock.classList.add('blur-computer-rock');
+        }
     }
-
+// The following blurs the player images that weren't selected and gives a point to either the player or computer if they've won.
 const inputs = document.querySelectorAll('input');
     inputs.forEach((input) => {
     input.addEventListener('click', (e) => {
-        if (e.target.id === 'player-rock-button' && computerSelection === 'paper' || 'scissors' ) {
+        if (e.target.id === 'player-rock-button' && computerPlay() === 'scissors') {
             e.target.style = 'border: 10px solid red;'
             playerScore = document.getElementById("player-score-counter").textContent = parseInt(playerScore) + 1;
             console.log(playerScore);
             blurPaperImage();
             blurScissorsImage();
-            computerRockSelection();
-            console.log(computerSelection);
-        } 
-        if (e.target.id === 'player-paper-button') {
+            computerRPSSelection();
+            console.log(computerPlay());
+        }
+        if (e.target.id === 'player-rock-button' && computerPlay() === 'paper') {
+            e.target.style = 'border: 10px solid red;'
+            computerScore = document.getElementById("computer-score-counter").textContent = parseInt(computerScore) + 1;
+            console.log(computerScore);
+            blurPaperImage();
+            blurScissorsImage();
+            computerRPSSelection();
+            console.log(computerPlay());
+        }
+        if (e.target.id === 'player-rock-button' && computerPlay() === 'rock') {
+            e.target.style = 'border: 10px solid red;'
+            blurPaperImage();
+            blurScissorsImage();
+            computerRPSSelection();
+            console.log(computerPlay());
+        }
+        if (e.target.id === 'player-paper-button' && computerPlay() === 'rock') {
+            e.target.style = 'border: 10px solid red;'
+            playerScore = document.getElementById("player-score-counter").textContent = parseInt(playerScore) + 1;
+            console.log(playerScore);
+            blurRockImage();
+            blurScissorsImage();
+            computerRPSSelection();
+            console.log(computerPlay());
+        }
+        if (e.target.id === 'player-paper-button' && computerPlay() === 'scissors') {
+            e.target.style = 'border: 10px solid red;'
+            computerScore = document.getElementById("computer-score-counter").textContent = parseInt(computerScore) + 1;
+            console.log(computerScore);
+            blurRockImage();
+            blurScissorsImage();
+            computerRPSSelection();
+            console.log(computerPlay());
+        }
+        if (e.target.id === 'player-paper-button' && computerPlay() === 'paper') {
             e.target.style = 'border: 10px solid red;'
             blurRockImage();
             blurScissorsImage();
+            computerRPSSelection();
+            console.log(computerSelection);
         }
-        if (e.target.id === 'player-scissors-button') {   e.target.style = 'border: 10px solid red;'
+        if (e.target.id === 'player-scissors-button' && computerPlay() === 'paper') {
+            e.target.style = 'border: 10px solid red;'
+            playerScore = document.getElementById("player-score-counter").textContent = parseInt(playerScore) + 1;
+            console.log(playerScore);
             blurRockImage();
             blurPaperImage();
+            computerRPSSelection();
+            console.log(computerSelection);
+        }
+        if (e.target.id === 'player-scissors-button' && computerPlay() === 'rock') {
+            e.target.style = 'border: 10px solid red;'
+            computerScore = document.getElementById("computer-score-counter".textContent) = parseInt(computerScore) + 1;
+            console.log(computerScore);
+            blurRockImage();
+            blurPaperImage();
+            computerRPSSelection();
+            console.log(computerSelection);
+        }
+        if (e.target.id === 'player-scissors-button' && computerPlay() === 'scissors') {
+            e.target.style = 'border: 10px solid red;'
+            blurRockImage();
+            blurPaperImage();
+            computerRPSSelection();
+            console.log(computerSelection);
         }
         });
     });
 
+    const playAgainButton = document.getElementById('play-again-btn');
+    playAgainButton.addEventListener('click', (e) => {
+        resetRock();
+        computerPlay();
+    });
+        /*if (e.target.id === ('play-again-btn')) {
+            computerPlay();
+            resetRock();
+        }
+    }); */
 
+    /*const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            if (e.target.id === "play-again-btn") {
+                let unblurRock = document.getElementById('player-rock-image');
+                unblurRock.classList.add('reset-rock');
+                computerPlay();
+                resetRock();
+            }
+        });
+    }); */
 
-        const buttons = document.querySelectorAll('button');
+        /*const buttons = document.querySelectorAll('button');
 
 //the .forEach method iterates through each button
 buttons.forEach((button) => {
@@ -80,7 +176,7 @@ buttons.forEach((button) => {
             e.target.style = 'background-color: blue; color: white;'
           }
     });
-});
+});*/
 /*
 <script>
 
