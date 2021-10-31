@@ -35,7 +35,19 @@
     cursor: default;
     transform: scale(.7, .7);
 }
+.blur-computer-paper {
+    filter: blur(4px);
+    pointer-events: none;
+    cursor: default;
+    transform: scale(.7, .7);
+}
 .blur-scissors {
+    filter: blur(4px);
+    pointer-events: none;
+    cursor: default;
+    transform: scale(.7, .7);
+}
+.blur-computer-scissors {
     filter: blur(4px);
     pointer-events: none;
     cursor: default;
@@ -46,4 +58,7 @@
     pointer-events: none;
     cursor: default;
     transform: scale(.7, .7);
+}
+.computer-rock-border {
+    border: 10px solid red;
 }
