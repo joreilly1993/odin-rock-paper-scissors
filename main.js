@@ -10,14 +10,27 @@ function blurScissorsImage() {
     const blurScissors = document.getElementById("player-scissors-button");
     blurScissors.classList.add("blur-scissors");
 }
+
 // This function blurs/disables the rock image on the player selection side.
 function blurRockImage() {
     const blurRock = document.getElementById("player-rock-button");
     blurRock.classList.add("blur-rock");
 }
-function resetRock() {
-    const resetRock = document.getElementById("player-rock-button");
-    resetRock.style = 'border: none;'
+function resetPlayerRock() {
+    const resetPlayerRock = document.getElementById("player-rock-button");
+    resetPlayerRock.classList.remove("blur-rock", "rock-player-selection", "rock-border");
+}
+function resetPlayerScissors() {
+    const resetPlayerScissors = document.getElementById("player-scissors-button");
+    resetPlayerScissors.classList.remove("blur-scissors");
+}
+function resetPlayerPaper() {
+    const resetPlayerPaper = document.getElementById("player-paper-button");
+    resetPlayerPaper.classList.remove("blur-paper", "paper-player-selection", "paper-border");
+}
+function resetPlayerScissors() {
+    const resetPlayerScissors = document.getElementById("player-scissors-button");
+    resetPlayerScissors.classList.remove("blur-scissors", "scissors-player-selection", "scissors-border");
 }
 // This function makes a random selection for the computer.
 function computerPlay() {
@@ -59,7 +72,8 @@ const inputs = document.querySelectorAll('input');
     inputs.forEach((input) => {
     input.addEventListener('click', (e) => {
         if (e.target.id === 'player-rock-button' && computerPlay() === 'scissors') {
-            e.target.style = 'border: 10px solid red;'
+            const rockPlayerSelection = document.getElementById("player-rock-button");
+            rockPlayerSelection.classList.add('rock-player-selection', 'rock-border');
             playerScore = document.getElementById("player-score-counter").textContent = parseInt(playerScore) + 1;
             console.log(playerScore);
             blurPaperImage();
@@ -68,7 +82,8 @@ const inputs = document.querySelectorAll('input');
             console.log(computerPlay());
         }
         if (e.target.id === 'player-rock-button' && computerPlay() === 'paper') {
-            e.target.style = 'border: 10px solid red;'
+            const rockPlayerSelection = document.getElementById("player-rock-button");
+            rockPlayerSelection.classList.add('rock-player-selection', 'rock-border');
             computerScore = document.getElementById("computer-score-counter").textContent = parseInt(computerScore) + 1;
             console.log(computerScore);
             blurPaperImage();
@@ -77,14 +92,16 @@ const inputs = document.querySelectorAll('input');
             console.log(computerPlay());
         }
         if (e.target.id === 'player-rock-button' && computerPlay() === 'rock') {
-            e.target.style = 'border: 10px solid red;'
+            const rockPlayerSelection = document.getElementById("player-rock-button");
+            rockPlayerSelection.classList.add('rock-player-selection', 'rock-border');
             blurPaperImage();
             blurScissorsImage();
             computerRPSSelection();
             console.log(computerPlay());
         }
         if (e.target.id === 'player-paper-button' && computerPlay() === 'rock') {
-            e.target.style = 'border: 10px solid red;'
+            const paperPlayerSelection = document.getElementById("player-paper-button");
+            paperPlayerSelection.classList.add('paper-player-selection', 'paper-border');
             playerScore = document.getElementById("player-score-counter").textContent = parseInt(playerScore) + 1;
             console.log(playerScore);
             blurRockImage();
@@ -93,7 +110,8 @@ const inputs = document.querySelectorAll('input');
             console.log(computerPlay());
         }
         if (e.target.id === 'player-paper-button' && computerPlay() === 'scissors') {
-            e.target.style = 'border: 10px solid red;'
+            const paperPlayerSelection = document.getElementById("player-paper-button");
+            paperPlayerSelection.classList.add('paper-player-selection', 'paper-border');
             computerScore = document.getElementById("computer-score-counter").textContent = parseInt(computerScore) + 1;
             console.log(computerScore);
             blurRockImage();
@@ -102,43 +120,50 @@ const inputs = document.querySelectorAll('input');
             console.log(computerPlay());
         }
         if (e.target.id === 'player-paper-button' && computerPlay() === 'paper') {
-            e.target.style = 'border: 10px solid red;'
+            const paperPlayerSelection = document.getElementById("player-paper-button");
+            paperPlayerSelection.classList.add('paper-player-selection', 'paper-border');
             blurRockImage();
             blurScissorsImage();
             computerRPSSelection();
-            console.log(computerSelection);
+            console.log(computerPlay());
         }
         if (e.target.id === 'player-scissors-button' && computerPlay() === 'paper') {
-            e.target.style = 'border: 10px solid red;'
+            const scissorsPlayerSelection = document.getElementById("player-scissors-button");
+            scissorsPlayerSelection.classList.add('scissors-player-selection', 'scissors-border');
             playerScore = document.getElementById("player-score-counter").textContent = parseInt(playerScore) + 1;
             console.log(playerScore);
             blurRockImage();
             blurPaperImage();
             computerRPSSelection();
-            console.log(computerSelection);
+            console.log(computerPlay());
         }
         if (e.target.id === 'player-scissors-button' && computerPlay() === 'rock') {
-            e.target.style = 'border: 10px solid red;'
-            computerScore = document.getElementById("computer-score-counter".textContent) = parseInt(computerScore) + 1;
+            const scissorsPlayerSelection = document.getElementById("player-scissors-button");
+            scissorsPlayerSelection.classList.add('scissors-player-selection', 'scissors-border');
+            computerScore = document.getElementById("computer-score-counter").textContent = parseInt(computerScore) + 1;
+            
             console.log(computerScore);
             blurRockImage();
             blurPaperImage();
             computerRPSSelection();
-            console.log(computerSelection);
+            console.log(computerPlay());
         }
         if (e.target.id === 'player-scissors-button' && computerPlay() === 'scissors') {
-            e.target.style = 'border: 10px solid red;'
+            const scissorsPlayerSelection = document.getElementById("player-scissors-button");
+            scissorsPlayerSelection.classList.add('scissors-player-selection', 'scissors-border');
             blurRockImage();
             blurPaperImage();
             computerRPSSelection();
-            console.log(computerSelection);
+            console.log(computerPlay());
         }
         });
     });
 
     const playAgainButton = document.getElementById('play-again-btn');
     playAgainButton.addEventListener('click', (e) => {
-        resetRock();
+        resetPlayerRock();
+        resetPlayerScissors();
+        resetPlayerPaper();
         computerPlay();
     });
         /*if (e.target.id === ('play-again-btn')) {

@@ -35,25 +35,19 @@
     cursor: default;
     transform: scale(.7, .7);
 }
-.blur-rock {
+.blur-computer-paper {
     filter: blur(4px);
     pointer-events: none;
     cursor: default;
     transform: scale(.7, .7);
 }
-.player-rock-selection {
-    border: 10px solid red;
-}
-.reset-rock {
+.reset-paper {
     border: none;
 }
-.blur-scissors {
-    filter: blur(4px);
-    pointer-events: none;
-    cursor: default;
-    transform: scale(.7, .7);
+.computer-paper-border {
+    border: 10px solid red;
 }
-.blur-computer-paper {
+.blur-rock {
     filter: blur(4px);
     pointer-events: none;
     cursor: default;
@@ -65,19 +59,48 @@
     cursor: default;
     transform: scale(.7, .7);
 }
+.computer-rock-border {
+    border: 10px solid red;
+}
+.blur-scissors {
+    filter: blur(4px);
+    pointer-events: none;
+    cursor: default;
+    transform: scale(.7, .7);
+}
 .blur-computer-scissors {
     filter: blur(4px);
     pointer-events: none;
     cursor: default;
     transform: scale(.7, .7);
 }
-
-.computer-rock-border {
-    border: 10px solid red;
-}
-.computer-paper-border {
-    border: 10px solid red;
+.reset-scissors {
+    border: none;
 }
 .computer-scissors-border {
+    border: 10px solid red;
+}
+.rock-player-selection {
+    pointer-events: none;
+    cursor: default;
+    user-select: none;
+}
+.rock-border {
+    border: 10px solid red;
+}
+.scissors-player-selection {
+    pointer-events: none;
+    cursor: default;
+    user-select: none;
+}
+.scissors-border {
+    border: 10px solid red;
+}
+.paper-player-selection {
+    pointer-events: none;
+    cursor: default;
+    user-select: none;
+}
+.paper-border {
     border: 10px solid red;
 }
