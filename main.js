@@ -5,21 +5,25 @@ let computerSelections = ['rock', 'paper', 'scissors'];
 function blurPaperImage() {
     const blurPaper = document.getElementById("player-paper-button");
     blurPaper.classList.add("blur-paper");
+    blurPaper.classList.remove("player-paper-btn");
 }
 // This function blurs/disables the scissors image on the player selection side.
 function blurScissorsImage() {
     const blurScissors = document.getElementById("player-scissors-button");
     blurScissors.classList.add("blur-scissors");
+    blurScissors.classList.remove("player-scissors-btn");
 }
 
 // This function blurs/disables the rock image on the player selection side.
 function blurRockImage() {
     const blurRock = document.getElementById("player-rock-button");
     blurRock.classList.add("blur-rock");
+    blurRock.classList.remove("player-rock-btn");
 }
 function resetPlayerRock() {
     const resetPlayerRock = document.getElementById("player-rock-button");
     resetPlayerRock.classList.remove("blur-rock", "rock-player-selection", "rock-border");
+    resetPlayerRock.classList.add("player-rock-btn");
 }
 function resetComputerRock() {
     const resetComputerRock = document.getElementById("computer-rock-selection");
@@ -28,6 +32,7 @@ function resetComputerRock() {
 function resetPlayerPaper() {
     const resetPlayerPaper = document.getElementById("player-paper-button");
     resetPlayerPaper.classList.remove("blur-paper", "paper-player-selection", "paper-border");
+    resetPlayerPaper.classList.add("player-paper-btn");
 }
 function resetComputerPaper() {
     const resetComputerPaper = document.getElementById("computer-paper-selection");
@@ -36,6 +41,7 @@ function resetComputerPaper() {
 function resetPlayerScissors() {
     const resetPlayerScissors = document.getElementById("player-scissors-button");
     resetPlayerScissors.classList.remove("blur-scissors", "scissors-player-selection", "scissors-border");
+    resetPlayerScissors.classList.add("player-scissors-btn");
 }
 function resetComputerScissors() {
     const resetComputerScissors = document.getElementById("computer-scissors-selection");
@@ -134,6 +140,7 @@ const inputs = document.querySelectorAll('input');
 
             const rockPlayerSelection = document.getElementById("player-rock-button");
             rockPlayerSelection.classList.add('rock-player-selection', 'rock-border');
+            rockPlayerSelection.classList.remove('player-rock-btn');
 
             playerScore = document.getElementById("player-score-counter").textContent = parseInt(playerScore) + 1;
             console.log(playerScore);
@@ -297,11 +304,8 @@ const inputs = document.querySelectorAll('input');
         else if (e.target.id === 'play-again-btn') {
 
             const roundResults = document.getElementById("round-results");
-    while (roundResults.firstChild) {
-        roundResults.removeChild(roundResults.firstChild);
-    }
 
-            const playAgainButton = document.getElementById('play-again-btn');
+            
 
              resetPlayerRock();
              resetComputerRock();
@@ -309,7 +313,31 @@ const inputs = document.querySelectorAll('input');
              resetComputerScissors();
              resetPlayerPaper();
              resetComputerPaper();
-             
-        }
+
+    while (roundResults.firstChild) {
+        roundResults.removeChild(roundResults.firstChild);
+        }        
+    }
+        /*else if (e.target.id === 'reset-game-btn') {
+            let resetPlayerScore = document.getElementById('player-score-counter');
+            resetPlayerScore.textContent = 0;
+
+            let resetComputerScore = document.getElementById('computer-score-counter');
+            resetComputerScore.textContent = 0;
+            
+
+            
+        }*/
         });
+    });
+
+    const resetGame = document.getElementById('reset-game-btn');
+    resetGame.addEventListener('click', (e) => {
+        if (e.target.id === 'reset-game-btn') {
+            
+            computerScore = document.getElementById("computer-score-counter").textContent = parseInt(computerScore) - parseInt(computerScore);
+
+            playerScore = document.getElementById("player-score-counter").textContent = parseInt(playerScore) - parseInt(playerScore);
+            
+        }
     });
