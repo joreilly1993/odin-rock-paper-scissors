@@ -62,6 +62,12 @@
 .computer-rock-border {
     border: 10px solid red;
 }
+.computer-scissors-border {
+    border: 10px solid red;
+}
+.computer-paper-border {
+    border: 10px solid red;
+}
 .blur-scissors {
     filter: blur(4px);
     pointer-events: none;
