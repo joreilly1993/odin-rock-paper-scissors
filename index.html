@@ -9,12 +9,12 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
+    <h2 id="title">Rock Paper Scissors</h1>
 
     <div id="container">
 
       <div id ="player-div">
-        <p>Select your move:</p>
+        <p id="player-selection-title">Select your move:</p>
         <input type="image" src="images/rock2.png" name="player-rock" class = "player-rock-btn" id="player-rock-button">
         <input type="image" src="images/paper2.png" name="player-paper" class="player-paper-btn" id="player-paper-button">
         <input type="image" src="images/scissors2.png" name="player-scissors" class="player-scissors-btn" id="player-scissors-button">
@@ -23,16 +23,16 @@
       <div id="score-and-play">
         <input type="button" value="Play Again" name="play-again-btn" id="play-again-btn">
         <div id="round-results"></div>
-        <p>Player score:</p><p id="player-score-counter">0</p>
-        <p>Computer score:</p><p id="computer-score-counter">0</p>
+        <p id="player-score">Player score:</p><p id="player-score-counter">0</p>
+        <p id="computer-score">Computer score:</p><p id="computer-score-counter">0</p>
         <input type="button" value="Reset Game" name="reset-game-btn" id="reset-game-btn">
       </div>
 
       <div id="computer-div">
-          <p>Computer move:</p>
-        <img class ="game-images" src ="images/rock2.png" id="computer-rock-selection">
-        <img class="game-images" src="images/paper2.png" id="computer-paper-selection">
-        <img class="game-images" src="images/scissors2.png" id="computer-scissors-selection">
+          <p id="computer-selection-title">Computer move:</p>
+        <img class ="computer-rock-image" src ="images/rock2.png" id="computer-rock-selection">
+        <img class="computer-paper-image" src="images/paper2.png" id="computer-paper-selection">
+        <img class="computer-scissors-image" src="images/scissors2.png" id="computer-scissors-selection">
       </div>
     </div>
 

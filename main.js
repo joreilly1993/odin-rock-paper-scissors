@@ -62,6 +62,7 @@ let computerSelection = computerSelections[Math.floor(Math.random() * computerSe
   function playerWins() {
   const roundResults = document.querySelector('#round-results');
             const roundWinner = document.createElement('p');
+            roundWinner.className = "winner";
             roundWinner.textContent = 'Player wins!';
             roundResults.appendChild(roundWinner);
   }
@@ -70,7 +71,7 @@ let computerSelection = computerSelections[Math.floor(Math.random() * computerSe
     function computerWins() {
   const roundResults = document.querySelector('#round-results');
             const roundWinner = document.createElement('p');
-            roundWinner.setAttribute('computer-winner', '')
+            roundWinner.className = "winner";
             roundWinner.textContent = 'Computer wins!';
             roundResults.appendChild(roundWinner);
     }
@@ -78,6 +79,7 @@ let computerSelection = computerSelections[Math.floor(Math.random() * computerSe
     function roundTie() {
         const roundResults = document.querySelector('#round-results');
             const roundWinner = document.createElement('p');
+            roundWinner.className = "winner";
             roundWinner.textContent = 'It\'s a tie!';
             roundResults.appendChild(roundWinner);
     }
@@ -103,8 +105,10 @@ let computerSelection = computerSelections[Math.floor(Math.random() * computerSe
             computerRockSelection.classList.add("computer-rock-border");
             const blurComputerPaper = document.getElementById("computer-paper-selection");
             blurComputerPaper.classList.add('blur-computer-paper');
+            blurComputerPaper.classList.remove("computer-paper-image");
             const blurComputerScissors = document.getElementById("computer-scissors-selection");
             blurComputerScissors.classList.add("blur-computer-scissors");
+            blurComputerScissors.classList.remove("computer-scissors-image");
           }
         }
         function computerPaperSelection() {
@@ -152,6 +156,12 @@ const inputs = document.querySelectorAll('input');
             const blurComputerPaper = document.getElementById("computer-paper-selection");
             blurComputerPaper.classList.add('blur-computer-paper');
 
+            const computerRockRemoveBorder = document.getElementById("computer-rock-selection");
+            computerRockRemoveBorder.classList.remove("computer-rock-image");
+
+            const computerPaperRemoveBorder = document.getElementById("computer-paper-selection");
+            computerPaperRemoveBorder.classList.remove("computer-paper-image");
+
             blurPaperImage();
             blurScissorsImage();
         }
@@ -172,6 +182,12 @@ const inputs = document.querySelectorAll('input');
             blurComputerRock.classList.add('blur-computer-rock');
             const blurComputerScissors = document.getElementById("computer-scissors-selection");
             blurComputerScissors.classList.add("blur-computer-scissors");
+
+            const computerRockRemoveBorder = document.getElementById("computer-rock-selection");
+            computerRockRemoveBorder.classList.remove("computer-rock-image");
+
+            const computerScissorsRemoveBorder = document.getElementById("computer-scissors-selection");
+            computerScissorsRemoveBorder.classList.remove("computer-scissors-image");
 
             blurPaperImage();
             blurScissorsImage();
@@ -196,6 +212,12 @@ const inputs = document.querySelectorAll('input');
             blurComputerPaper.classList.add('blur-computer-paper');
             const blurComputerScissors = document.getElementById("computer-scissors-selection");
             blurComputerScissors.classList.add("blur-computer-scissors");
+
+            const computerScissorsRemoveBorder = document.getElementById("computer-scissors-selection");
+            computerScissorsRemoveBorder.classList.remove("computer-scissors-image");
+
+            const computerPaperRemoveBorder = document.getElementById("computer-paper-selection");
+            computerPaperRemoveBorder.classList.remove("computer-paper-image");
         }
         else if (e.target.id === 'player-paper-button' && computerPlay() === 'rock') {
             const paperPlayerSelection = document.getElementById("player-paper-button");
@@ -212,6 +234,12 @@ const inputs = document.querySelectorAll('input');
             blurComputerPaper.classList.add('blur-computer-paper');
             const blurComputerScissors = document.getElementById("computer-scissors-selection");
             blurComputerScissors.classList.add("blur-computer-scissors");
+
+            const computerScissorsRemoveBorder = document.getElementById("computer-scissors-selection");
+            computerScissorsRemoveBorder.classList.remove("computer-scissors-image");
+
+            const computerPaperRemoveBorder = document.getElementById("computer-paper-selection");
+            computerPaperRemoveBorder.classList.remove("computer-paper-image");
 
             console.log("Computer Selection is: Rock");
         }
@@ -231,6 +259,12 @@ const inputs = document.querySelectorAll('input');
             const blurComputerPaper = document.getElementById("computer-paper-selection");
             blurComputerPaper.classList.add('blur-computer-paper');
 
+            const computerRockRemoveBorder = document.getElementById("computer-rock-selection");
+            computerRockRemoveBorder.classList.remove("computer-rock-image");
+
+            const computerPaperRemoveBorder = document.getElementById("computer-paper-selection");
+            computerPaperRemoveBorder.classList.remove("computer-paper-image");
+
             console.log("Computer selection is: Scissors");
         }
         else if (e.target.id === 'player-paper-button' && computerPlay() === 'paper') {
@@ -246,6 +280,12 @@ const inputs = document.querySelectorAll('input');
             blurComputerRock.classList.add('blur-computer-rock');
             const blurComputerScissors = document.getElementById("computer-scissors-selection");
             blurComputerScissors.classList.add("blur-computer-scissors");
+
+            const computerRockRemoveBorder = document.getElementById("computer-rock-selection");
+            computerRockRemoveBorder.classList.remove("computer-rock-image");
+
+            const computerScissorsRemoveBorder = document.getElementById("computer-scissors-selection");
+            computerScissorsRemoveBorder.classList.remove("computer-scissors-image");
 
             console.log("Computer selection is: Paper");
         }
@@ -265,6 +305,12 @@ const inputs = document.querySelectorAll('input');
             const blurComputerScissors = document.getElementById("computer-scissors-selection");
             blurComputerScissors.classList.add("blur-computer-scissors");
 
+            const computerRockRemoveBorder = document.getElementById("computer-rock-selection");
+            computerRockRemoveBorder.classList.remove("computer-rock-image");
+
+            const computerScissorsRemoveBorder = document.getElementById("computer-scissors-selection");
+            computerScissorsRemoveBorder.classList.remove("computer-scissors-image");
+
             console.log("Computer selection is: Paper");
         }
         else if (e.target.id === 'player-scissors-button' && computerPlay() === 'rock') {
@@ -283,6 +329,12 @@ const inputs = document.querySelectorAll('input');
             const blurComputerScissors = document.getElementById("computer-scissors-selection");
             blurComputerScissors.classList.add("blur-computer-scissors");
 
+            const computerScissorsRemoveBorder = document.getElementById("computer-scissors-selection");
+            computerScissorsRemoveBorder.classList.remove("computer-scissors-image");
+
+            const computerPaperRemoveBorder = document.getElementById("computer-paper-selection");
+            computerPaperRemoveBorder.classList.remove("computer-paper-image");
+
             console.log("Computer selection is: Rock");
         }
         else if (e.target.id === 'player-scissors-button' && computerPlay() === 'scissors') {
@@ -299,13 +351,26 @@ const inputs = document.querySelectorAll('input');
             const blurComputerPaper = document.getElementById("computer-paper-selection");
             blurComputerPaper.classList.add('blur-computer-paper');
 
+            const computerRockRemoveBorder = document.getElementById("computer-rock-selection");
+            computerRockRemoveBorder.classList.remove("computer-rock-image");
+
+            const computerPaperRemoveBorder = document.getElementById("computer-paper-selection");
+            computerPaperRemoveBorder.classList.remove("computer-paper-image");
+
             console.log("Computer selection is: Scissors");
         }
         else if (e.target.id === 'play-again-btn') {
 
             const roundResults = document.getElementById("round-results");
 
-            
+            const addPaperBorder = document.getElementById("computer-paper-selection");
+            addPaperBorder.classList.add("computer-paper-image");
+
+            const addRockBorder = document.getElementById("computer-rock-selection");
+            addRockBorder.classList.add("computer-rock-image");
+
+            const addScissorsBorder = document.getElementById("computer-scissors-selection");
+            addScissorsBorder.classList.add("computer-scissors-image");
 
              resetPlayerRock();
              resetComputerRock();
